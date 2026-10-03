@@ -1,0 +1,103 @@
+[
+  {
+    "model_name": "Multi-Horizon Arrival Forecaster",
+    "features": [
+      "arrival_lag1",
+      "arrival_3d_mean",
+      "arrival_7d_mean",
+      "arrival_14d_mean",
+      "arrival_volatility",
+      "rainfall_3d",
+      "rainfall_7d",
+      "rainfall_14d",
+      "capacity",
+      "nearest_road_dist",
+      "flood_exposure"
+    ],
+    "training_period": "2025-09-01 to 2026-01-27",
+    "validation_period": "2026-01-28 to 2026-02-28",
+    "test_period": "2026-03-01 to 2026-03-31",
+    "training_rows": 71967,
+    "test_rows": 14973,
+    "horizons": {
+      "1d": {
+        "target": "future_arrival_1d",
+        "model": "RandomForestRegressor (1d)",
+        "baseline_mae": 3.03,
+        "baseline_rmse": 5.98,
+        "model_mae": 4.63,
+        "model_rmse": 8.06,
+        "model_r2": 0.47
+      },
+      "3d": {
+        "target": "future_arrival_3d",
+        "model": "RandomForestRegressor (3d)",
+        "baseline_mae": 8.73,
+        "baseline_rmse": 14.50,
+        "model_mae": 9.90,
+        "model_rmse": 14.87,
+        "model_r2": 0.75
+      },
+      "7d": {
+        "target": "future_arrival_7d",
+        "model": "RandomForestRegressor (7d)",
+        "baseline_mae": 27.56,
+        "baseline_rmse": 38.53,
+        "model_mae": 23.97,
+        "model_rmse": 33.87,
+        "model_r2": 0.71
+      }
+    }
+  },
+  {
+    "model_name": "Moisture Proxy Risk Index",
+    "target": "moisture_risk_proxy (Proxy)",
+    "training_period": "N/A",
+    "validation_period": "N/A",
+    "test_period": "N/A",
+    "training_rows": 112056,
+    "features": [
+      "rainfall_7d",
+      "rainfall_14d",
+      "flood_exposure"
+    ],
+    "baseline_metrics": {
+      "mae": null,
+      "rmse": null,
+      "r2": null
+    },
+    "model_metrics": {
+      "mae": null,
+      "rmse": null,
+      "r2": null
+    },
+    "note": "TRANSPARENT PROXY: Field-measured grain moisture readings at DPC level are absent from administrative records. Moisture risk is proxied via 14-day rainfall and Sentinel-1 flood exposure."
+  },
+  {
+    "model_name": "Access Disruption Model",
+    "target": "access_disruption",
+    "training_period": "N/A",
+    "validation_period": "N/A",
+    "test_period": "N/A",
+    "training_rows": 0,
+    "features": [
+      "rainfall_7d",
+      "flood_exposure",
+      "nearest_road_dist",
+      "major_road_dist"
+    ],
+    "baseline_metrics": {
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "roc_auc": null
+    },
+    "model_metrics": {
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "roc_auc": null
+    },
+    "note": "TARGET UNAVAILABLE: DPC-to-road network graph and historical disruption ground-truth labels are unavailable. Proximity flags are displayed in the dashboard as an operational proxy only."
+  }
+]

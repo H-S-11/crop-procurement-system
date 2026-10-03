@@ -1,0 +1,81 @@
+[
+    {
+        "model_name": "Arrival RandomForestRegressor",
+        "target": "arrival_mt",
+        "training_period": "2025-09-01 00:00:00 to 2026-02-28 00:00:00",
+        "validation_period": "2026-02-28 00:00:00 to 2026-03-19 00:00:00",
+        "test_period": "2026-03-19 00:00:00 to 2026-04-20 00:00:00",
+        "training_rows": 42998,
+        "features": [
+            "arrival_7d_mean",
+            "arrival_7d_max",
+            "arrival_14d_mean",
+            "arrival_volatility",
+            "rainfall_7d",
+            "rainfall_14d",
+            "elevation",
+            "nearest_road_dist"
+        ],
+        "baseline_metrics": {
+            "mae": 1.8997756519582003,
+            "rmse": 3.35473482387458,
+            "r2": 0.6369661351149332
+        },
+        "model_metrics": {
+            "mae": 2.125234375873333,
+            "rmse": 3.581514643915858,
+            "r2": 0.5862250376498462
+        }
+    },
+    {
+        "model_name": "Moisture Proxy Risk Index",
+        "target": "moisture_risk_proxy (Proxy)",
+        "training_period": "N/A",
+        "validation_period": "N/A",
+        "test_period": "N/A",
+        "training_rows": 176778,
+        "features": [
+            "rainfall_7d",
+            "rainfall_14d",
+            "flood_exposure"
+        ],
+        "baseline_metrics": {
+            "mae": null,
+            "rmse": null,
+            "r2": null
+        },
+        "model_metrics": {
+            "mae": null,
+            "rmse": null,
+            "r2": null
+        },
+        "note": "Transparent risk proxy, not a trained prediction."
+    },
+    {
+        "model_name": "Access Disruption Model",
+        "target": "access_disruption",
+        "training_period": "N/A",
+        "validation_period": "N/A",
+        "test_period": "N/A",
+        "training_rows": 0,
+        "features": [
+            "rainfall_7d",
+            "flood_exposure",
+            "nearest_road_dist",
+            "major_road_dist"
+        ],
+        "baseline_metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "roc_auc": null
+        },
+        "model_metrics": {
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "roc_auc": null
+        },
+        "note": "Target cannot be constructed reliably. Document limitation instead of fabricating labels."
+    }
+]

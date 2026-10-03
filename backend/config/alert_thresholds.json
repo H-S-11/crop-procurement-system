@@ -1,0 +1,7 @@
+{
+  "storage_saturation_pct": 80,
+  "high_risk_score": 70,
+  "critical_risk_score": 85,
+  "heavy_rainfall_1d_mm": 50,
+  "arrival_surge_mt": 100
+}

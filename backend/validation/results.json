@@ -1,0 +1,44 @@
+{
+  "evaluation_period": "2025-08-01 to 2026-01-31",
+  "num_dpcs": 483,
+  "num_events": 5154,
+  "matched_events": 5147,
+  "unmatched_events": 7,
+  "metrics": {
+    "binary_event_detection": null,
+    "risk_ranking": null,
+    "precision": null,
+    "recall": null,
+    "f1": null,
+    "note": "Metrics are null because underlying risk models (access disruption, damage) have not yet produced predictions. Real metrics will be computed once models are trained and produce non-trivial outputs."
+  },
+  "model_statuses": {
+    "access_disruption": {
+      "status": "not_yet_validated",
+      "reason": "Access disruption model has not produced non-zero predictions. Cannot compute precision/recall without predictions to evaluate."
+    },
+    "damage_risk": {
+      "status": "not_yet_validated",
+      "reason": "Damage risk score is not yet wired to real data (currently hardcoded 0). Cannot compute precision/recall without predictions to evaluate."
+    },
+    "storage_saturation": {
+      "status": "validated_partial",
+      "reason": "Storage simulation runs on arrival data. Validation limited by lack of ground-truth DPC-level stock records (B5 is godown-level only)."
+    },
+    "moisture_rejection": {
+      "status": "not_yet_validated",
+      "reason": "Moisture risk uses a proxy formula (rainfall + flood exposure), not a trained classifier. No confusion matrix is applicable."
+    }
+  },
+  "threshold_configuration": "default",
+  "validation_status": "PARTIALLY_VALIDATED \u2014 1/4 models producing predictions",
+  "limitations": [
+    "Damage risk score is not yet wired to B10 incident data.",
+    "Access disruption model has not been trained \u2014 B11 labels not yet constructed.",
+    "Moisture risk uses a rainfall/flood proxy, not actual moisture measurements.",
+    "Storage outflow uses a synthetic 10% daily decay assumption.",
+    "Flood exposure is derived from classified SAR flood extent.",
+    "Arrival Random Forest does not outperform the 7-day mean baseline.",
+    "Validation metrics (precision, recall, F1) will only be populated once the underlying models produce real predictions to compare against events."
+  ]
+}

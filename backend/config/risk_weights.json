@@ -1,0 +1,8 @@
+{
+    "storage_weight": 0.40,
+    "flood_weight": 0.20,
+    "weather_weight": 0.20,
+    "damage_weight": 0.10,
+    "access_weight": 0.10,
+    "note": "Prototype weights. Storage saturation is heavily weighted due to immediate operational risk. Flood and weather present acute physical threats. Damage and access act as modifiers based on historical occurrences."
+}
