@@ -214,3 +214,15 @@ npx playwright test
 2. **Godown B5 Outflow Attribution**: Godown dispatches are recorded centrally; local DPC clearing rates are modeled under a standard 10% daily capacity assumption.
 3. **Satellite SAR Latency**: Flood extent is based on the most recent Sentinel-1 SAR acquisition pass; it represents observed standing water, not continuous streamflow gauge prediction.
 4. **Dynamic Road Routing Graph Unavailable**: Disruption alerts are based on radial proximity to recorded closure events and road classifications.
+
+---
+
+## 🗂 10. Repository Maintenance & Git Tracking
+
+To keep the repository lightweight and reduce the amount of files uploaded to GitHub, ensure that the `.gitignore` file is active and tracking the following exclusions:
+- **`node_modules/` & `.next/`**: Prevents uploading heavy frontend dependencies and build outputs.
+- **`venv/` / `.venv/`**: Excludes local Python virtual environments.
+- **`data/`**: Large raw datasets and local SQLite databases (`*.sqlite`, `*.db`) should not be pushed.
+- **`backend/models/`**: Heavy trained machine learning model artifacts (`*.pkl`, `*.joblib`) are excluded from version control. 
+
+Always generate data and models locally rather than committing them.
